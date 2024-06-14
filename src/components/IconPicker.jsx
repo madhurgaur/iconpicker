@@ -14,9 +14,14 @@ const IconPicker = () => {
     const closePicker = () => {
       setIsPickerOpen(false);
     };
-  
+    
     const handleIconSelect = (icon) => {
       setSelectedIcon(icon);
+      closePicker();
+    };
+  
+    const handleCancel = () => {
+      setSelectedIcon(null); // Reset selected icon
       closePicker();
     };
 
@@ -37,7 +42,7 @@ const IconPicker = () => {
             pickerHeight="500px"
             pickerWidth="500px"
             onIconSelect={handleIconSelect}
-            onClose={closePicker}
+            onClose={handleCancel}
           />
         )}
       </div>
